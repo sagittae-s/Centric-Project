@@ -20,6 +20,13 @@ namespace Centric_Project.Controllers
             return View();
         }
 
+        public ActionResult CoreValues()
+        {
+            ViewBag.Message = "Centric's Core Values.";
+
+            return View();
+        }
+
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
