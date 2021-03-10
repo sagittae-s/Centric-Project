@@ -29,6 +29,7 @@ namespace Centric_Project.Models
         public string businessUnit { get; set; }
 
         [Display(Name ="Hire Date")]
+        [DisplayFormat(DataFormatString ="{0:d}")]
         public DateTime hireDate { get; set; }
 
         [Display(Name ="Title")]

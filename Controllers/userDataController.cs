@@ -72,6 +72,7 @@ namespace Centric_Project.Controllers
         }
 
         // GET: userData/Edit/5
+        [Authorize]
         public ActionResult Edit(Guid? id)
         {
             if (id == null)
@@ -103,6 +104,7 @@ namespace Centric_Project.Controllers
         }
 
         // GET: userData/Delete/5
+        [Authorize]
         public ActionResult Delete(Guid? id)
         {
             if (id == null)
