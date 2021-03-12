@@ -12,11 +12,13 @@ using Microsoft.AspNet.Identity;
 
 namespace Centric_Project.Controllers
 {
+    [Authorize]
     public class userDataController : Controller
     {
         private MIS4200Context db = new MIS4200Context();
 
         // GET: userData
+        [AllowAnonymous]
         public ActionResult Index()
         {
             return View(db.userData.ToList());
