@@ -170,6 +170,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\RegisteredUsersController.cs" />
     <Compile Include="Controllers\userDataController.cs" />
     <Compile Include="DAL\MIS4200Context.cs" />
     <Compile Include="Global.asax.cs">
@@ -179,6 +180,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\RegisteredUser.cs" />
     <Compile Include="Models\userData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -249,6 +251,11 @@
     <Content Include="Views\userData\Edit.cshtml" />
     <Content Include="Views\userData\Index.cshtml" />
     <Content Include="Views\userData\duplicateuser.cshtml" />
+    <Content Include="Views\RegisteredUsers\Create.cshtml" />
+    <Content Include="Views\RegisteredUsers\Delete.cshtml" />
+    <Content Include="Views\RegisteredUsers\Details.cshtml" />
+    <Content Include="Views\RegisteredUsers\Edit.cshtml" />
+    <Content Include="Views\RegisteredUsers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
