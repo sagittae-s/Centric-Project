@@ -81,12 +81,12 @@ namespace Centric_Project.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    Context db = new Context();
-                    var registeredUser = db.registeredUsers.Where(u => u.email == model.Email).FirstOrDefault();
-                    if(registeredUser is null)
-                    {
-                        return View("FinishRegistration");
-                    }
+                    //Context db = new Context();
+                    //var registeredUser = db.registeredUsers.Where(u => u.email == model.Email).FirstOrDefault();
+                    //if(registeredUser is null)
+                    //{
+                    //    return View("FinishRegistration");
+                    //}
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
@@ -171,7 +171,7 @@ namespace Centric_Project.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    return RedirectToAction("Create", "registeredUsers");
+                    return RedirectToAction("Create", "userData");
                 }
                 AddErrors(result);
             }
