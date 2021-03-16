@@ -86,7 +86,19 @@ namespace Centric_Project.Controllers
             {
                 return HttpNotFound();
             }
-            return View(userData);
+            {
+                Guid memberId;
+                Guid.TryParse(User.Identity.GetUserId(), out memberId);
+                if (memberId == id)
+                {
+                    return View(userData);
+                }
+                else
+                {
+                    return View("NotAuthorized");
+                }
+            }
+            
         }
 
         // POST: userData/Edit/5
@@ -118,7 +130,16 @@ namespace Centric_Project.Controllers
             {
                 return HttpNotFound();
             }
-            return View(userData);
+            Guid memberId;
+            Guid.TryParse(User.Identity.GetUserId(), out memberId);
+            if (memberId == id)
+            {
+                return View(userData);
+            }
+            else
+            {
+                return View("NotAuthorized");
+            }
         }
 
         // POST: userData/Delete/5

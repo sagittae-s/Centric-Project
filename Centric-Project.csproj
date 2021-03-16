@@ -249,6 +249,7 @@
     <Content Include="Views\userData\Edit.cshtml" />
     <Content Include="Views\userData\Index.cshtml" />
     <Content Include="Views\userData\duplicateuser.cshtml" />
+    <Content Include="Views\userData\NotAuthorized.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
