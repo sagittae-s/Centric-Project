@@ -1,4 +1,6 @@
-﻿@model IEnumerable<Centric_Project.Models.userData>
+﻿@*model IEnumerable<Centric_Project.Models.userData>*@
+@model PagedList.IPagedList<Centric_Project.Models.userData>
+@using PagedList.Mvc;
 
 @{
     ViewBag.Title = "Profile List";
@@ -7,45 +9,63 @@
 <h2>Employee Profiles</h2>
 
 
+<br />
+@using (Html.BeginForm("Index", "???", FormMethod.Get))
+{
+    <p>
+        Find by Name: @Html.TextBox("searchString")
+        <input type="submit" value="Search" />
+    </p>
+}
+<br />
+
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.fullName)
-        </th>
-
-        <th>
-            @Html.DisplayNameFor(model => model.businessUnit)
+            First Name
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.hireDate)
+            Last Name
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.title)
+            Business Unit
+        </th>
+        <th>
+            Hire Date
+        </th>
+        <th>
+            Title
         </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.fullName)
-        </td>
-
-        <td>
-            @Html.DisplayFor(modelItem => item.businessUnit)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.hireDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.title)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.firstName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.lastName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.businessUnit)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.hireDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.title)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+    </td>
+</tr>
 }
 
 </table>
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
