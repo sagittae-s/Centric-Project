@@ -82,12 +82,12 @@ namespace Centric_Project.Controllers
             {
                 case SignInStatus.Success:
                     //Context db = new Context();
-                    //var registeredUser = db.registeredUsers.Where(u => u.email == model.Email).FirstOrDefault();
-                    //if(registeredUser is null)
+                    //var userData = db.userDatas.Where(u => u.email == model.Email).FirstOrDefault();
+                    //if (userData is null)
                     //{
                     //    return View("FinishRegistration");
                     //}
-                    return RedirectToLocal(returnUrl);
+                    //return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
