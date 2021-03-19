@@ -87,7 +87,7 @@ namespace Centric_Project.Controllers
                     //{
                     //    return View("FinishRegistration");
                     //}
-                    //return RedirectToLocal(returnUrl);
+                    return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
