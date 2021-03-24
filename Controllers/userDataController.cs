@@ -42,6 +42,7 @@ namespace Centric_Project.Controllers
         }
 
         // GET: userData/Details/5
+        [AllowAnonymous]
         public ActionResult Details(Guid? id)
         {
             if (id == null)

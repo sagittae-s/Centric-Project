@@ -6,7 +6,9 @@
     ViewBag.Title = "Profile List";
 }
 
-<h2>Employee Profiles</h2>
+<div class="alert alert-success">
+    <h2>Employee Profiles</h2>
+</div>
 
 
 <br />
@@ -19,7 +21,7 @@
 }
 <br />
 
-<table class="table table-striped">
+<table class="table table-hover table-bordered table-condensed">
     <tr>
         <th>
             Full Name
@@ -53,8 +55,8 @@
     </td>
     <td>
         @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+        @Html.ActionLink("Details", "Details", new { id = item.ID }) 
+        @*@Html.ActionLink("Delete", "Delete", new { id = item.ID })*@
     </td>
 </tr>
 }

@@ -3,7 +3,9 @@
     ViewBag.Title = "NotAuthorized";
 }
 
-<h2>You are not authorized to edit or delete another person's profile!</h2>
+<div class="alert alert-danger">
+    <h2>You are not authorized to edit another person's profile!</h2>
+</div>
 <p>
     @Html.ActionLink("Back to List", "Index")
 </p>
