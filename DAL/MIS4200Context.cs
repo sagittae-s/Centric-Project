@@ -14,5 +14,6 @@ namespace Centric_Project.DAL
 
         }
         public DbSet<userData> userData { get; set; }
+        public DbSet<recognitions> recognitions { get; set; }
     }
 }

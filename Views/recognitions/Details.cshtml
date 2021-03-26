@@ -1,0 +1,58 @@
+﻿@model Centric_Project.Models.recognitions
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>recognitions</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.award)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.award)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.recognizor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.recognizor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.recognized)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.recognized)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.recognitionDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.recognitionDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.reason)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.reason)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.recognitionsID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
