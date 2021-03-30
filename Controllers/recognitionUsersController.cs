@@ -11,17 +11,20 @@ using Centric_Project.Models;
 
 namespace Centric_Project.Controllers
 {
+    [Authorize]
     public class recognitionUsersController : Controller
     {
         private MIS4200Context db = new MIS4200Context();
 
         // GET: recognitionUsers
+        [AllowAnonymous]
         public ActionResult Index()
         {
             return View(db.recognitionUsers.ToList());
         }
 
         // GET: recognitionUsers/Details/5
+        [AllowAnonymous]
         public ActionResult Details(int? id)
         {
             if (id == null)
