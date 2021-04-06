@@ -42,6 +42,7 @@ namespace Centric_Project.Controllers
         // GET: recognitionUsers/Create
         public ActionResult Create()
         {
+            ViewBag.ID = new SelectList(db.userData, "ID", "fullName");
             return View();
         }
 

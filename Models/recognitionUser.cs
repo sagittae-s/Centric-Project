@@ -35,6 +35,7 @@ namespace Centric_Project.Models
 
         [Display(Name = "Reason")]
         public string reason { get; set; }
-
+        //public Guid userDataID { get; set; }
+        //    public virtual userData UserData { get; set; }
     }
 }

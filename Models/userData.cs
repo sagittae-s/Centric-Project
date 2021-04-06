@@ -34,5 +34,6 @@ namespace Centric_Project.Models
 
         [Display(Name ="Title")]
         public string title { get; set; }
+        //public ICollection<recognitionUser> recognitionUser { get; set; }
     }
 }
