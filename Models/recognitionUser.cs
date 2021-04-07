@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -11,10 +12,14 @@ namespace Centric_Project.Models
         public int recognitionUserID { get; set; }
 
         [Display(Name = "Person giving the recognition")]
-        public string recoginzor { get; set; }
+        public Guid recognizor { get; set; }
+        [ForeignKey("recognizor")]
+        public userData personGiving; 
 
         [Display(Name = "Person receiving recognition")]
-        public string recognized { get; set; }
+        public Guid recognized { get; set; }
+        [ForeignKey("recognized")]
+        public userData personReceiving;
 
         [Display(Name = "Date of Recognition")]
         [DisplayFormat(DataFormatString = "{0:d}")]

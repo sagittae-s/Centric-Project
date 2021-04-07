@@ -176,6 +176,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\recognitionUsers1Controller.cs" />
     <Compile Include="Controllers\recognitionUsersController.cs" />
     <Compile Include="Controllers\userDataController.cs" />
     <Compile Include="DAL\MIS4200Context.cs" />
@@ -265,6 +266,11 @@
     <Content Include="Views\recognitionUsers\Details.cshtml" />
     <Content Include="Views\recognitionUsers\Edit.cshtml" />
     <Content Include="Views\recognitionUsers\Index.cshtml" />
+    <Content Include="Views\recognitionUsers1\Create.cshtml" />
+    <Content Include="Views\recognitionUsers1\Delete.cshtml" />
+    <Content Include="Views\recognitionUsers1\Details.cshtml" />
+    <Content Include="Views\recognitionUsers1\Edit.cshtml" />
+    <Content Include="Views\recognitionUsers1\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

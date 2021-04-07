@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -34,6 +35,9 @@ namespace Centric_Project.Models
 
         [Display(Name ="Title")]
         public string title { get; set; }
-        //public ICollection<recognitionUser> recognitionUser { get; set; }
+        [ForeignKey("recognized")]
+        public ICollection<recognitionUser> personReceiving { get; set; }
+        [ForeignKey("recognizor")]
+        public ICollection<recognitionUser> personGiving { get; set; }
     }
 }
