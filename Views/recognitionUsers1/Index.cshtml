@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<Centric_Project.Models.recognitionUser>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Recognitions";
 }
 
-<h2>Index</h2>
+<h2>Awards to Employees for Demonstrating Centric's Core Values</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -50,8 +50,8 @@
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.recognitionUserID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.recognitionUserID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.recognitionUserID })
+            @Html.ActionLink("Details", "Details", new { id=item.recognitionUserID })
+            @*@Html.ActionLink("Delete", "Delete", new { id=item.recognitionUserID })*@
         </td>
     </tr>
 }

@@ -15,7 +15,8 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.recognizor)
+            @*@Html.DisplayFor(model => model.recognizor)*@
+            @Html.DisplayFor(model => model.personGiving.fullName)
         </dd>
 
         <dt>
@@ -23,7 +24,8 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.recognized)
+            @*@Html.DisplayFor(model => model.recognized)*@
+            @Html.DisplayFor(model => model.personReceiving.fullName)
         </dd>
 
         <dt>

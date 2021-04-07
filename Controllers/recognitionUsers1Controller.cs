@@ -64,6 +64,8 @@ namespace Centric_Project.Controllers
         // GET: recognitionUsers1/Edit/5
         public ActionResult Edit(int? id)
         {
+            ViewBag.recognizor = new SelectList(db.userData, "ID", "fullName");
+            ViewBag.recognized = new SelectList(db.userData, "ID", "fullName");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
