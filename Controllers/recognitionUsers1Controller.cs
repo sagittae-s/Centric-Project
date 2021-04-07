@@ -18,7 +18,7 @@ namespace Centric_Project.Controllers
         // GET: recognitionUsers1
         public ActionResult Index()
         {
-            return View(db.recognitionUsers.Include(r=>r.personReceiving).Include(r=>r.personGiving).ToList());
+            return View(db.recognitionUsers.ToList());
         }
 
         // GET: recognitionUsers1/Details/5

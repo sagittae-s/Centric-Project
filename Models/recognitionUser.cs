@@ -14,12 +14,12 @@ namespace Centric_Project.Models
         [Display(Name = "Person giving the recognition")]
         public Guid recognizor { get; set; }
         [ForeignKey("recognizor")]
-        public userData personGiving; 
+        public virtual userData personGiving { get; set; }
 
         [Display(Name = "Person receiving recognition")]
         public Guid recognized { get; set; }
         [ForeignKey("recognized")]
-        public userData personReceiving;
+        public virtual userData personReceiving { get; set; }
 
         [Display(Name = "Date of Recognition")]
         [DisplayFormat(DataFormatString = "{0:d}")]
