@@ -8,20 +8,24 @@ using System.Web;
 using System.Web.Mvc;
 using Centric_Project.DAL;
 using Centric_Project.Models;
+using Microsoft.AspNet.Identity;
 
 namespace Centric_Project.Controllers
 {
+    [Authorize]
     public class recognitionUsers1Controller : Controller
     {
         private MIS4200Context db = new MIS4200Context();
 
         // GET: recognitionUsers1
+        [AllowAnonymous]
         public ActionResult Index()
         {
             return View(db.recognitionUsers.ToList());
         }
 
         // GET: recognitionUsers1/Details/5
+        [AllowAnonymous]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -39,9 +43,22 @@ namespace Centric_Project.Controllers
         // GET: recognitionUsers1/Create
         public ActionResult Create()
         {
+            //Trying to alphabetize the drop down list
+            //var userData = db.userData.OrderBy(c => c.lastName).ThenBy(c => c.firstName);
+            //string ID = User.Identity.GetUserId();
             ViewBag.recognizor = new SelectList(db.userData, "ID", "fullName");
+            //recognitionUser = new SelectList(recognitionUser.Where(x => x.Value != ID).ToList(), "Value", "Text");
+
             ViewBag.recognized = new SelectList(db.userData, "ID", "fullName");
             return View();
+
+            //How to put the select in the drop down
+
+            //string empID = User.Identity.GetUserId();
+            //SelectList employees = new SelectList(db.employeeDetails, "SID", "fullName");
+            //employees = new SelectList(employees.Where(x => x.Value != empID).ToList(), "Value", "Text");
+            //ViewBag.recID = employees;
+
         }
 
         // POST: recognitionUsers1/Create
@@ -75,7 +92,15 @@ namespace Centric_Project.Controllers
             {
                 return HttpNotFound();
             }
-            return View(recognitionUser);
+            {
+                //Guid memberId;
+                //Guid.TryParse(User.Identity.GetUserId(), out memberId);
+                //if (memberId == id)
+                {
+                    return View(recognitionUser);
+                }
+            }
+
         }
 
         // POST: recognitionUsers1/Edit/5

@@ -271,6 +271,7 @@
     <Content Include="Views\recognitionUsers1\Details.cshtml" />
     <Content Include="Views\recognitionUsers1\Edit.cshtml" />
     <Content Include="Views\recognitionUsers1\Index.cshtml" />
+    <Content Include="Views\recognitionUsers1\leaderboard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
