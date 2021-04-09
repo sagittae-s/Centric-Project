@@ -41,23 +41,21 @@ namespace Centric_Project.Controllers
         }
 
         // GET: recognitionUsers1/Create
+
         public ActionResult Create()
         {
-            //Trying to alphabetize the drop down list
-            //var userData = db.userData.OrderBy(c => c.lastName).ThenBy(c => c.firstName);
-            //string ID = User.Identity.GetUserId();
-            ViewBag.recognizor = new SelectList(db.userData, "ID", "fullName");
-            //recognitionUser = new SelectList(recognitionUser.Where(x => x.Value != ID).ToList(), "Value", "Text");
+            //DDL in alphabetical order
+            var employeeData = db.userData.OrderBy(c => c.lastName).ThenBy(c => c.firstName);
 
-            ViewBag.recognized = new SelectList(db.userData, "ID", "fullName");
+            string ID = User.Identity.GetUserId();
+            var employeeList = new SelectList(employeeData, "ID", "fullName");
+            employeeList = new SelectList(employeeList.Where(x => x.Value != ID).ToList(), "Value", "Text");
+            ViewBag.recognizor = employeeList;
+            
+
+            ViewBag.recognized = employeeList;
             return View();
 
-            //How to put the select in the drop down
-
-            //string empID = User.Identity.GetUserId();
-            //SelectList employees = new SelectList(db.employeeDetails, "SID", "fullName");
-            //employees = new SelectList(employees.Where(x => x.Value != empID).ToList(), "Value", "Text");
-            //ViewBag.recID = employees;
 
         }
 
@@ -70,6 +68,9 @@ namespace Centric_Project.Controllers
         {
             if (ModelState.IsValid)
             {
+                Guid memberID;
+                Guid.TryParse(User.Identity.GetUserId(), out memberID);
+                recognitionUser.recognizor = memberID;
                 db.recognitionUsers.Add(recognitionUser);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -81,8 +82,18 @@ namespace Centric_Project.Controllers
         // GET: recognitionUsers1/Edit/5
         public ActionResult Edit(int? id)
         {
-            ViewBag.recognizor = new SelectList(db.userData, "ID", "fullName");
-            ViewBag.recognized = new SelectList(db.userData, "ID", "fullName");
+            var employeeData = db.userData.OrderBy(c => c.lastName).ThenBy(c => c.firstName);
+
+            string ID = User.Identity.GetUserId();
+            var employeeList = new SelectList(employeeData, "ID", "fullName");
+            employeeList = new SelectList(employeeList.Where(x => x.Value != ID).ToList(), "Value", "Text");
+            ViewBag.recognizor = employeeList;
+
+
+            ViewBag.recognized = employeeList;
+
+            //ViewBag.recognizor = new SelectList(db.userData, "ID", "fullName");
+            //ViewBag.recognized = new SelectList(db.userData, "ID", "fullName");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -93,11 +104,15 @@ namespace Centric_Project.Controllers
                 return HttpNotFound();
             }
             {
-                //Guid memberId;
-                //Guid.TryParse(User.Identity.GetUserId(), out memberId);
-                //if (memberId == id)
+                Guid memberId;
+                Guid.TryParse(User.Identity.GetUserId(), out memberId);
+                if (memberId == recognitionUser.recognizor)
                 {
                     return View(recognitionUser);
+                }
+                else
+                {
+                    return View("NoEdit");
                 }
             }
 
