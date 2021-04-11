@@ -4,7 +4,9 @@
     ViewBag.Title = "New Recognition";
 }
 
-<h2>Recognize an Employee for Demonstrating Core Values</h2>
+<div class="alert alert-success">
+    <h2>Recognize an Employee for Demonstrating Core Values</h2>
+</div>
 
 
 @using (Html.BeginForm()) 
@@ -65,7 +67,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index", "userData")
 </div>
 
 @section Scripts {

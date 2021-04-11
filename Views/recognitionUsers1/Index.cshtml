@@ -4,12 +4,14 @@
     ViewBag.Title = "Recognitions";
 }
 
-<h2>Awards to Employees for Demonstrating Centric's Core Values</h2>
+<div class="alert alert-success">
+    <h2>Awards to Employees for Demonstrating Centric's Core Values</h2>
+</div>
 
 <p>
     @*@Html.ActionLink("Create New", "Create")*@
 </p>
-<table class="table">
+<table class="table table-hover table-bordered table-condensed">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.recognizor)

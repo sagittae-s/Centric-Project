@@ -22,8 +22,9 @@ namespace Centric_Project.Models
         public virtual userData personReceiving { get; set; }
 
         [Display(Name = "Date of Recognition")]
-        [DisplayFormat(DataFormatString = "{0:d}")]
-        public DateTime date { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString ="{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
+        public Nullable<System.DateTime> date { get; set; }
 
         [Display(Name = "Core value recognized")]
         public CoreValue award { get; set; }
