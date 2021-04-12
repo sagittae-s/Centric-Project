@@ -84,12 +84,21 @@ namespace Centric_Project.Controllers
         {
             if (ModelState.IsValid)
             {
-                Guid memberID;
-                Guid.TryParse(User.Identity.GetUserId(), out memberID);
-                recognitionUser.recognizor = memberID;
-                db.recognitionUsers.Add(recognitionUser);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                try
+                {
+
+
+                    Guid memberID;
+                    Guid.TryParse(User.Identity.GetUserId(), out memberID);
+                    recognitionUser.recognizor = memberID;
+                    db.recognitionUsers.Add(recognitionUser);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                catch
+                {
+                    //Add error message return
+                }
             }
 
             return View(recognitionUser);
