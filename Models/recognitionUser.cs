@@ -16,16 +16,19 @@ namespace Centric_Project.Models
         [ForeignKey("recognizor")]
         public virtual userData personGiving { get; set; }
 
+        [Required]
         [Display(Name = "Person receiving recognition")]
         public Guid recognized { get; set; }
         [ForeignKey("recognized")]
         public virtual userData personReceiving { get; set; }
 
+        [Required]
         [Display(Name = "Date of Recognition")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString ="{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> date { get; set; }
-
+        
+        [Required]
         [Display(Name = "Core value recognized")]
         public CoreValue award { get; set; }
         public enum CoreValue
@@ -39,6 +42,7 @@ namespace Centric_Project.Models
             Balance = 7
         }
 
+        [Required]
         [Display(Name = "Reason")]
         public string reason { get; set; }
         //public Guid userDataID { get; set; }
