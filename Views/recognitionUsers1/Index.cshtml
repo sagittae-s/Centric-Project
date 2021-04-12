@@ -1,5 +1,6 @@
-﻿@model IEnumerable<Centric_Project.Models.recognitionUser>
-
+﻿@*model IEnumerable<Centric_Project.Models.recognitionUser>*@
+@model PagedList.IPagedList<Centric_Project.Models.recognitionUser>
+@using PagedList.Mvc;
 @{
     ViewBag.Title = "Recognitions";
 }
@@ -14,49 +15,59 @@
 <table class="table table-hover table-bordered table-condensed">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.recognizor)
+            @*@Html.DisplayNameFor(model => model.recognizor)*@
+            Person Giving the Recognition
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.recognized)
+            @*@Html.DisplayNameFor(model => model.recognized)*@
+            Person Recieving Recognition
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.date)
+            @*Html.DisplayNameFor(model => model.date)*@
+            Date of Recognition
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.award)
+            @*Html.DisplayNameFor(model => model.award)*@
+            Core Value Recognized
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.reason)
+            @*Html.DisplayNameFor(model => model.reason)*@
+            Reason
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @*@Html.DisplayFor(modelItem => item.recognizor)*@
-            @Html.DisplayFor(modelItem => item.personGiving.fullName)
-        </td>
-        <td>
-            @*@Html.DisplayFor(modelItem => item.recognized)*@
-            @Html.DisplayFor(modelItem => item.personReceiving.fullName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.award)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.reason)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.recognitionUserID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.recognitionUserID })
-            @*@Html.ActionLink("Delete", "Delete", new { id=item.recognitionUserID })*@
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.recognizor)*@
+                @Html.DisplayFor(modelItem => item.personGiving.fullName)
+            </td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.recognized)*@
+                @Html.DisplayFor(modelItem => item.personReceiving.fullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.award)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.reason)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.recognitionUserID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.recognitionUserID })
+                @*@Html.ActionLink("Delete", "Delete", new { id=item.recognitionUserID })*@
+            </td>
+        </tr>
+    }
 
 </table>
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
 

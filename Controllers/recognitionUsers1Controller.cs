@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using Centric_Project.DAL;
 using Centric_Project.Models;
 using Microsoft.AspNet.Identity;
+using PagedList;
 
 namespace Centric_Project.Controllers
 {
@@ -19,9 +20,24 @@ namespace Centric_Project.Controllers
 
         // GET: recognitionUsers1
         [AllowAnonymous]
-        public ActionResult Index()
+        public ActionResult Index(int? page, string searchString)
         {
-            return View(db.recognitionUsers.ToList());
+            //Paging
+            int pgSize = 10;
+            int pageNumber = (page ?? 1);
+            //var user = from r in db.recognitionUsers select r;
+            //sort the records
+            //user = db.recognitionUsers.OrderBy(r => r.recognizor);
+            //check to see if a search was requested and do it
+            //if(!String.IsNullOrEmpty(searchString))
+            //{
+                //user = user.Where(r => r.recognizor.Contains(searchString));
+            //}
+            var user = db.recognitionUsers.OrderBy(r => r.recognizor);
+            var userList = user.ToPagedList(pageNumber, pgSize);
+            return View(userList);
+            //Original Below
+            //return View(db.recognitionUsers.ToList());
         }
 
         // GET: recognitionUsers1/Details/5
