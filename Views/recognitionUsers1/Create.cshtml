@@ -53,7 +53,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.reason, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.reason, new { htmlAttributes = new { @class = "form-control" } })
+                @*@Html.EditorFor(model => model.reason, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.TextAreaFor(model => model.reason, 5, 120, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.reason, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -72,4 +73,11 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+@*Adding Rich Text Editor*@
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.is" referrerpolicy="origin"></script>
+<script>
+    tinymce.init({
+        selector: '#inspectionResults'
+    });
+    </script>
 }
