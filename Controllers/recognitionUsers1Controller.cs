@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 using Centric_Project.DAL;
@@ -86,8 +87,7 @@ namespace Centric_Project.Controllers
             {
                 try
                 {
-
-
+                    
                     Guid memberID;
                     Guid.TryParse(User.Identity.GetUserId(), out memberID);
                     recognitionUser.recognizor = memberID;
@@ -100,6 +100,32 @@ namespace Centric_Project.Controllers
                     //Add error message return
                 }
             }
+            //Attempting to add an email notification
+
+            //var email = "eguzik15@gmail.com";
+            //var msg = "Hi, you just got recognized! Check out your profile for more details.";
+            //MailMessage myMessage = new MailMessage();
+            //MailAddress from = new MailAddress("samleber17@gmail.com", "SysAdmin");
+            //myMessage.From = from;
+            //myMessage.To.Add(email);
+            //myMessage.Subject = "Core Value Recognition";
+            //myMessage.Body = msg;
+            //try
+            //{
+            //    SmtpClient smtp = new SmtpClient();
+            //    smtp.Host = "smtp.gmail.com";
+            //    smtp.Port = 587;
+            //    smtp.UseDefaultCredentials = false;
+            //    smtp.Credentials = new System.Net.NetworkCredential("GmailUserAcnt", "Password");
+            //    smtp.EnableSsl = true;
+            //    smtp.Send(myMessage);
+            //    TempData["mailError"] = "";
+            //}
+            //catch(Exception ex)
+            //{
+            //    TempData["mailError"] = ex.Message;
+            //    return View("mailError");
+            //}
 
             return View(recognitionUser);
         }
