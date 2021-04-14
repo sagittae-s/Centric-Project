@@ -76,6 +76,7 @@ namespace Centric_Project.Controllers
                 Guid.TryParse(User.Identity.GetUserId(), out memberID);
                 userData.ID = memberID;
                 //userData.ID = Guid.NewGuid();
+                userData.email = User.Identity.Name;
                 db.userData.Add(userData);
                 try
                 {

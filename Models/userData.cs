@@ -29,6 +29,8 @@ namespace Centric_Project.Models
         [Display(Name ="Business Unit")]
         public string businessUnit { get; set; }
 
+        public string email { get; set; }
+
         [Display(Name ="Hire Date")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
