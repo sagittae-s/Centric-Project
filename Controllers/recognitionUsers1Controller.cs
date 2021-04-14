@@ -94,10 +94,11 @@ namespace Centric_Project.Controllers
                     db.recognitionUsers.Add(recognitionUser);
                     db.SaveChanges();
 
-                    var email = recognitionUser.personReceiving.email; //Error comes up when creating a recognition
+                    var employee = db.userData.Find(recognitionUser.recognized);
+                    var email = employee.email; //Error comes up when creating a recognition
                     var msg = "Hi, you just got recognized! Check out your profile for more details.";
                     MailMessage myMessage = new MailMessage();
-                    MailAddress from = new MailAddress("mis4200centric@gmail.com", "Mis4200!");
+                    MailAddress from = new MailAddress("mis4200centric@gmail.com");
                     myMessage.From = from;
                     myMessage.To.Add(email);
                     myMessage.Subject = "Core Value Recognition";
@@ -108,7 +109,7 @@ namespace Centric_Project.Controllers
                         smtp.Host = "smtp.gmail.com";
                         smtp.Port = 587;
                         smtp.UseDefaultCredentials = false;
-                        smtp.Credentials = new System.Net.NetworkCredential("GmailUserAcnt", "Password");
+                        smtp.Credentials = new System.Net.NetworkCredential("mis4200centric@gmail.com", "Mis4200!");
                         smtp.EnableSsl = true;
                         smtp.Send(myMessage);
                         TempData["mailError"] = "";
