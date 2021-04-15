@@ -138,13 +138,13 @@ namespace Centric_Project.Controllers
         {
             var employeeData = db.userData.OrderBy(c => c.lastName).ThenBy(c => c.firstName);
 
-            string ID = User.Identity.GetUserId();
-            var employeeList = new SelectList(employeeData, "ID", "fullName");
-            employeeList = new SelectList(employeeList.Where(x => x.Value != ID).ToList(), "Value", "Text");
-            ViewBag.recognizor = employeeList;
+            //string ID = User.Identity.GetUserId();
+            //var employeeList = new SelectList(employeeData, "ID", "fullName");
+            //employeeList = new SelectList(employeeList.Where(x => x.Value != ID).ToList(), "Value", "Text", recognitionUser.recognized);
+            //ViewBag.recognizor = employeeList;
 
 
-            ViewBag.recognized = employeeList;
+            //ViewBag.recognized = employeeList;
 
             //ViewBag.recognizor = new SelectList(db.userData, "ID", "fullName");
             //ViewBag.recognized = new SelectList(db.userData, "ID", "fullName");
@@ -158,6 +158,13 @@ namespace Centric_Project.Controllers
                 return HttpNotFound();
             }
             {
+                string ID = User.Identity.GetUserId();
+                var employeeList = new SelectList(employeeData, "ID", "fullName");
+                employeeList = new SelectList(employeeList.Where(x => x.Value != ID).ToList(), "Value", "Text", recognitionUser.recognized);
+                ViewBag.recognizor = employeeList;
+
+
+                ViewBag.recognized = employeeList;
                 Guid memberId;
                 Guid.TryParse(User.Identity.GetUserId(), out memberId);
                 if (memberId == recognitionUser.recognizor)
