@@ -205,6 +205,7 @@
     <Content Include="Images\centric.jpg" />
     <Content Include="Images\linkedin.png" />
     <Content Include="Images\location.jpg" />
+    <Content Include="Images\Logo.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />

@@ -20,7 +20,7 @@ namespace Centric_Project.Controllers
         private MIS4200Context db = new MIS4200Context();
 
         // GET: recognitionUsers1
-        [AllowAnonymous]
+        
         public ActionResult Index(int? page, string searchString)
         {
             //Paging
