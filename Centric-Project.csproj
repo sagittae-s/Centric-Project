@@ -274,6 +274,7 @@
     <Content Include="Views\recognitionUsers1\Index.cshtml" />
     <Content Include="Views\recognitionUsers1\NoEdit.cshtml" />
     <Content Include="Views\recognitionUsers1\mailError.cshtml" />
+    <Content Include="Views\recognitionUsers1\Leaderboard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

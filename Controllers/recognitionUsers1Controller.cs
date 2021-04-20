@@ -39,6 +39,7 @@ namespace Centric_Project.Controllers
             return View(userList);
             //Original Below
             //return View(db.recognitionUsers.ToList());
+
         }
 
         // GET: recognitionUsers1/Details/5
@@ -228,6 +229,17 @@ namespace Centric_Project.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        public ActionResult Leaderboard(Guid? id)
+        {
+
+            var rec = db.recognitionUsers.Where(r => r.recognized == id);
+            var recList = rec.ToList();
+            ViewBag.rec = recList;
+            var totalCnt = recList.Count();
+            ViewBag.Total = totalCnt;
+
+            return View(new recognitionUser());
         }
     }
 }

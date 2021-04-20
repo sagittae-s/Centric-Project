@@ -11,9 +11,11 @@ namespace Centric_Project.Models
     {
         public Guid ID { get; set; }
 
+        [Required]
         [Display(Name ="First Name")]
         public string firstName { get; set; }
 
+        [Required]
         [Display(Name ="Last Name")]
         public string lastName { get; set; }
 
@@ -26,11 +28,13 @@ namespace Centric_Project.Models
             }
                 }
 
+        [Required]
         [Display(Name ="Business Unit")]
         public string businessUnit { get; set; }
 
         public string email { get; set; }
 
+        [Required]
         [Display(Name ="Hire Date")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
@@ -38,7 +42,7 @@ namespace Centric_Project.Models
         //[DisplayFormat(DataFormatString ="{0:d}")]
         //public DateTime hireDate { get; set; }
 
-
+        [Required]
         [Display(Name ="Title")]
         public string title { get; set; }
         [ForeignKey("recognized")]
