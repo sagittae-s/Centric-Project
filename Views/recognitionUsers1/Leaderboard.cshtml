@@ -6,26 +6,30 @@
 
 <h2>Leaderboard</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.recognized)
+            Award
         </th>
-        <th></th>
+        <th>
+            Test
+        </th>
+        <th>
+            Award
+        </th>
     </tr>
     
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.recognized)
+            @Html.DisplayFor(modelItem => item.personReceiving)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.recognitionUserID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.recognitionUserID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.recognitionUserID })
+            
+        </td>
+        <td>
+            @ViewBag.Total
         </td>
     </tr>
 }

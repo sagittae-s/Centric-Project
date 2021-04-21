@@ -230,16 +230,15 @@ namespace Centric_Project.Controllers
             }
             base.Dispose(disposing);
         }
-        public ActionResult Leaderboard(Guid? id)
+        public ActionResult Leaderboard()
         {
-
-            var rec = db.recognitionUsers.Where(r => r.recognized == id);
+            var rec = db.recognitionUsers;
             var recList = rec.ToList();
             ViewBag.rec = recList;
             var totalCnt = recList.Count();
             ViewBag.Total = totalCnt;
 
-            return View(new recognitionUser());
+            return View(recList);
         }
     }
 }
