@@ -4,8 +4,13 @@
 @{
     ViewBag.Title = "Recognitions";
 }
+<style>
+    .well {
+        background: rgb(244, 179, 16);
+    }
+</style>
 
-<div class="alert alert-success">
+<div class="well">
     <h2>Awards to Employees for Demonstrating Centric's Core Values</h2>
 </div>
 
@@ -59,7 +64,7 @@
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.recognitionUserID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.recognitionUserID })
+                @Html.ActionLink("Details", "Details", new { id = item.recognitionUserID }) |
                 @Html.ActionLink("Leaderboard", "Leaderboard", new { id = item.recognized })
                 @*@Html.ActionLink("Show Individual Results", "Index", new { id = item.recognized,emp=item.personReceiving.fullName})*@
                 @*@Html.ActionLink("Delete", "Delete", new { id=item.recognitionUserID })*@
