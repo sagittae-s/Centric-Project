@@ -238,6 +238,15 @@ namespace Centric_Project.Controllers
             var totalCnt = recList.Count();
             ViewBag.Total = totalCnt;
 
+            //var groupedResult = recList.GroupBy();
+
+            //var groupedResult = from r in recList
+            //                    group r by r.recognized;
+
+            var groupedResult = recList.ToLookup(r => r.recognized);
+
+            ViewBag.Group = groupedResult;
+            
             return View(recList);
         }
     }
