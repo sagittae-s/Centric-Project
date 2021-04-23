@@ -15,7 +15,7 @@
 <table class="table">
     <tr>
         <th>
-            Award
+            Employee
         </th>
         <th>
             Test
@@ -28,7 +28,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.personReceiving)
+            @Html.DisplayFor(modelItem => item.personReceiving.fullName)
         </td>
         <td>
             

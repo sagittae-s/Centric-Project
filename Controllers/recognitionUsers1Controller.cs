@@ -232,7 +232,7 @@ namespace Centric_Project.Controllers
         }
         public ActionResult Leaderboard()
         {
-            var rec = db.recognitionUsers;
+            var rec = db.recognitionUsers.GroupBy(r => r.personReceiving);
             var recList = rec.ToList();
             ViewBag.rec = recList;
             var totalCnt = recList.Count();
@@ -243,9 +243,9 @@ namespace Centric_Project.Controllers
             //var groupedResult = from r in recList
             //                    group r by r.recognized;
 
-            var groupedResult = recList.ToLookup(r => r.recognized);
+            //var groupedResult = recList.ToLookup(r => r.recognized);
 
-            ViewBag.Group = groupedResult;
+            //ViewBag.Group = groupedResult;
             
             return View(recList);
         }
