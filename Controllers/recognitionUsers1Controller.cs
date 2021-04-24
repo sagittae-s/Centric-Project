@@ -230,24 +230,24 @@ namespace Centric_Project.Controllers
             }
             base.Dispose(disposing);
         }
-        public ActionResult Leaderboard()
-        {
-            var rec = db.recognitionUsers.GroupBy(r => r.personReceiving);
-            var recList = rec.ToList();
-            ViewBag.rec = recList;
-            var totalCnt = recList.Count();
-            ViewBag.Total = totalCnt;
+        //public ActionResult Leaderboard()
+        //{
+        //    var rec = db.recognitionUsers.GroupBy(r => r.personReceiving);
+        //    var recList = rec.ToList();
+        //    ViewBag.rec = recList;
+        //    var totalCnt = recList.Count();
+        //    ViewBag.Total = totalCnt;
 
-            //var groupedResult = recList.GroupBy();
+        //    var groupedResult = recList.GroupBy();
 
-            //var groupedResult = from r in recList
-            //                    group r by r.recognized;
+        //    var groupedResult = from r in recList
+        //                        group r by r.recognized;
 
-            //var groupedResult = recList.ToLookup(r => r.recognized);
+        //    var groupedResult = recList.ToLookup(r => r.recognized);
 
-            //ViewBag.Group = groupedResult;
-            
-            return View(recList);
-        }
+        //    ViewBag.Group = groupedResult;
+
+        //    return View(recList);
+        //}
     }
 }

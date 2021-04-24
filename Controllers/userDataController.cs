@@ -26,7 +26,8 @@ namespace Centric_Project.Controllers
             int pageNumber = (page ?? 1);
             var user = from r in db.userData select r;
             //sort the records
-            user = db.userData.OrderBy(r => r.lastName).ThenBy(r => r.firstName);
+            user = user.Include(u => u.personReceiving).OrderByDescending(u => u.personReceiving.Count());
+            //user = db.userData.OrderBy(r => r.lastName).ThenBy(r => r.firstName); //deactivate to keep sorting by rec received
             //check to see if a search was requested and do it
             if(!String.IsNullOrEmpty(searchString))
             {
